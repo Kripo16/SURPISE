@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SURPRISE !!</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background-color: #2d2d2d;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #ff4c4c;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff6666;
+        }
+
+        #rickRollVideo {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 4px solid #ffffff;
+            border-radius: 12px;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ready for a surprise?</h1>
+    <button onclick="showRickRoll()">Click me!</button>
+
+    <video id="rickRollVideo" style="display: none;">
+        <source src="assets/rickroll.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="message" style="display: none;">Haha, LOOOOOOOOSER you got whistled and rickrolled 😂💀</div>
+
+    <script>
+        function showRickRoll() {
+            var videoElement = document.getElementById('rickRollVideo');
+            var messageElement = document.getElementById('message');
+
+            videoElement.style.display = 'block';
+            videoElement.play();
+
+            // Display the message after 1 second of video playback
+            videoElement.addEventListener('timeupdate', function() {
+                if (videoElement.currentTime >= 1) {
+                    messageElement.style.display = 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
